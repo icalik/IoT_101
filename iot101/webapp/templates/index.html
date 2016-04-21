@@ -1,0 +1,33 @@
+<html>
+  <head>
+      <title>Elazig Makerspace</title>
+      <script
+			  src="http://code.jquery.com/jquery-1.12.3.min.js"
+			  integrity="sha256-aaODHAgvwQW1bFOGXMeX+pC4PZIPsvn2h1sArYOhgXQ="
+			  crossorigin="anonymous"></script>
+  </head>
+  <body><center>
+    <h1>Elazig Makerspace IoT 101</h1>
+    <p>Hosgeldiniz..</p>
+    <h3>Switch Durumu:{{ switch }}</h3>
+    <p>
+        <button type='button' id='led_on'>LED AC</button>
+        <button type='button' id='led_off'>LED KAPAT</button>
+    </p>
+  </center>
+
+    <script>
+        $(document).ready(function (){
+            $('#led_on').click(function () {
+                console.log('LED ACIK!');
+                $.post('/led/1');
+            });
+            $('#led_off').click(function () {
+                console.log('LED KAPALI!');
+                $.post('/led/0');
+            });
+        });
+    </script>
+
+  </body>
+</html>
